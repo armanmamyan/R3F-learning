@@ -1,7 +1,8 @@
-import "./style.css";
-import * as THREE from 'three';
-import { Canvas } from "@react-three/fiber";
+import {useRef, useState} from 'react'
 import ReactDOM from "react-dom/client";
+import * as THREE from 'three';
+import { Canvas, useFrame } from "@react-three/fiber";
+import "./style.css";
 import Stage from './Stage';
 
 const root = ReactDOM.createRoot(document.querySelector("#root"));
@@ -28,10 +29,9 @@ root.render(
       }}
       // onCreated={created}
     >
-      {/* R3F Color for canvas. The only parent of the color is a SCENE. It will be background property of the scene*/}
-      {/* This code can be put anywhere as log as the direct parent is the SCENE */}
-      <color args={['ivory']} attach='background' />
-      <Stage />
+      <ambientLight />
+      <pointLight position={[10, 10, 10]} />
+
     </Canvas>
   </>
 );
